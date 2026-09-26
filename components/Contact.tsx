@@ -12,6 +12,7 @@ export default function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
@@ -19,21 +20,35 @@ export default function Contact() {
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
+    setErrorMessage('');
 
-    setTimeout(() => {
-      setSubmitting(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || data.error) {
+        throw new Error(data.error || 'Failed to send message.');
+      }
+
       setSubmitted(true);
-      
-      // Launch celebratory confetti
       confetti({
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 }
       });
-    }, 1000);
+    } catch (err: any) {
+      setErrorMessage(err?.message || 'Failed to transmit message via Resend.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -188,6 +203,11 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
+                  {errorMessage && (
+                    <div className="p-3.5 rounded-xl bg-rose-950/50 border border-rose-500/30 text-rose-300 text-xs font-mono">
+                      ⚠️ {errorMessage}
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-mono text-slate-400 mb-1">Your Name</label>

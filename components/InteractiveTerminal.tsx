@@ -165,16 +165,41 @@ export default function InteractiveTerminal({ isOpen, onClose }: InteractiveTerm
     }
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md">
+      <div 
+        onClick={onClose}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md overscroll-contain"
+      >
         <motion.div
+          onClick={(e) => e.stopPropagation()}
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative w-full max-w-3xl glass-card rounded-3xl border border-cyan-500/40 shadow-2xl shadow-cyan-950/50 overflow-hidden flex flex-col h-[520px]"
+          className="relative w-full max-w-3xl glass-card rounded-3xl border border-cyan-500/40 shadow-2xl shadow-cyan-950/50 overflow-hidden flex flex-col h-[520px] overscroll-contain"
         >
           {/* Top Header Bar */}
           <div className="px-6 py-4 bg-[#080d1a] border-b border-white/10 flex items-center justify-between">
@@ -213,7 +238,7 @@ export default function InteractiveTerminal({ isOpen, onClose }: InteractiveTerm
           </div>
 
           {/* Terminal Screen Body */}
-          <div className="flex-1 p-6 overflow-y-auto font-mono text-xs space-y-4 bg-[#04060d]">
+          <div className="flex-1 p-6 overflow-y-auto overscroll-contain font-mono text-xs space-y-4 bg-[#04060d]">
             {logs.map((log) => (
               <div key={log.id} className="space-y-1">
                 {log.type === 'input' && (
