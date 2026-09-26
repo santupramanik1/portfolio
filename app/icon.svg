@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#04060c" />
+    </linearGradient>
+
+    <!-- Orange/Amber Gradient for P -->
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB703" />
+      <stop offset="50%" stop-color="#FB8500" />
+      <stop offset="100%" stop-color="#E65100" />
+    </linearGradient>
+
+    <!-- Silver Bracket Gradient -->
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CBD5E1" />
+      <stop offset="100%" stop-color="#64748B" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Card -->
+  <rect width="512" height="512" rx="100" fill="url(#bgGrad)" />
+  <rect width="504" height="504" x="4" y="4" rx="96" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8" />
+
+  <!-- Left Code Bracket < -->
+  <path 
+    d="M 125 200 L 58 256 L 125 312" 
+    fill="none" 
+    stroke="url(#silverGrad)" 
+    stroke-width="32" 
+    stroke-linecap="round" 
+    stroke-linejoin="round" 
+  />
+
+  <!-- Right Code Bracket > -->
+  <path 
+    d="M 387 200 L 454 256 L 387 312" 
+    fill="none" 
+    stroke="url(#silverGrad)" 
+    stroke-width="32" 
+    stroke-linecap="round" 
+    stroke-linejoin="round" 
+  />
+
+  <!-- Monogram S (White) -->
+  <path 
+    d="M 252 170 L 175 170 C 142 170 128 192 128 218 C 128 245 145 258 175 264 L 222 272 C 242 276 250 286 250 298 C 250 312 236 324 212 324 L 148 324 L 115 358 L 214 358 C 262 358 285 334 285 296 C 285 264 265 248 232 242 L 188 234 C 172 231 163 223 163 212 C 163 200 176 194 195 194 L 252 194 Z" 
+    fill="#FFFFFF" 
+  />
+
+  <!-- Monogram P (Amber/Orange Gradient) -->
+  <path 
+    d="M 258 170 L 332 170 C 375 170 398 192 398 232 C 398 272 375 294 332 294 L 292 294 L 292 375 L 258 410 Z M 292 194 L 292 270 L 328 270 C 352 270 364 256 364 232 C 364 208 352 194 328 194 Z" 
+    fill="url(#orangeGrad)" 
+  />
+</svg>

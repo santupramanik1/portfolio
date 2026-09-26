@@ -63,10 +63,8 @@ export default function Navbar({ onOpenTerminal, onOpenResume }: NavbarProps) {
             href="#hero"
             className="flex items-center gap-3 group focus:outline-none"
           >
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 via-indigo-500 to-purple-600 p-[1px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition-all duration-300">
-              <div className="w-full h-full bg-[#080b14] rounded-[11px] flex items-center justify-center font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400 group-hover:scale-105 transition-transform">
-                SP
-              </div>
+            <div className="relative w-12 h-12 rounded-xl bg-slate-900 border border-white/10 shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 group-hover:border-cyan-500/40 transition-all duration-300 overflow-hidden flex items-center justify-center p-0">
+              <img src="/icon.svg" alt="Santu Pramanik SP Logo" className="w-full h-full object-cover scale-110 group-hover:scale-115 transition-transform" />
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-slate-100 tracking-tight text-base group-hover:text-cyan-400 transition-colors">

@@ -16,10 +16,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand Info */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-indigo-600 p-[1px]">
-              <div className="w-full h-full bg-[#080b14] rounded-[7px] flex items-center justify-center font-mono font-bold text-xs text-cyan-400">
-                SP
-              </div>
+            <div className="w-11 h-11 rounded-xl bg-slate-900 border border-white/10 overflow-hidden flex items-center justify-center p-0">
+              <img src="/icon.svg" alt="SP Logo" className="w-full h-full object-cover scale-110" />
             </div>
             <div>
               <span className="font-bold text-white text-sm block">{PERSONAL_INFO.name}</span>

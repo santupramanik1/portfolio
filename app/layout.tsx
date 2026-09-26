@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   description: "Personal portfolio of Santu Pramanik. MCA student, Full-Stack MERN & Next.js Developer, TypeScript enthusiast, and AI workflow specialist based in Bengaluru.",
   keywords: ["Santu Pramanik", "Full Stack Developer", "MERN Stack", "TypeScript", "Next.js", "AI Integration", "HireIQ", "CogniSketch", "Presidency College MCA"],
   authors: [{ name: "Santu Pramanik" }],
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
   openGraph: {
     title: "Santu Pramanik | Full-Stack Developer & AI Specialist",
     description: "Explore Santu Pramanik's full-stack applications, AI integrations, LeetCode achievements, and engineering background.",
