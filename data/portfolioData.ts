@@ -105,6 +105,24 @@ export const EDUCATION_LIST: Education[] = [
     period: "Jun 2021 – Jun 2024",
     grade: "CGPA: 8.76",
     details: "Core Computer Science foundation: Data Structures, Algorithms, DBMS, OOPs in C++/Java, and Web Technologies."
+  },
+  {
+    id: "hs",
+    degree: "Higher Secondary (10+2 / Class XII)",
+    institution: "West Bengal Council of Higher Secondary Education (WBCHSE)",
+    location: "West Bengal, India",
+    period: "Passout: 2021",
+    grade: "Marks: 447 (89.4%)",
+    details: "Focused on Computer Application, Biology, and Chemistry with high academic distinction."
+  },
+  {
+    id: "madhyamik",
+    degree: "Secondary Education (Class X)",
+    institution: "West Bengal Board of Secondary Education (WBBSE)",
+    location: "West Bengal, India",
+    period: "Passout: 2019",
+    grade: "Marks: 581 (83%)",
+    details: "Strong fundamental foundation in Mathematics, General Science, and Logical Reasoning."
   }
 ];
 
