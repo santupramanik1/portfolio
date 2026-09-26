@@ -13,6 +13,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import InteractiveTerminal from '@/components/InteractiveTerminal';
 import ResumeModal from '@/components/ResumeModal';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 export default function Home() {
   const [terminalOpen, setTerminalOpen] = useState(false);
@@ -50,6 +51,9 @@ export default function Home() {
 
         <Footer />
       </div>
+
+      {/* Floating WhatsApp Action Button */}
+      <WhatsAppButton />
 
       {/* Interactive Terminal Shell Drawer */}
       <InteractiveTerminal
