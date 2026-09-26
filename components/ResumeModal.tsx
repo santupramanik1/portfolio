@@ -186,14 +186,30 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
 
             {/* Technical Skills */}
             <div>
-              <h4 className="text-xs font-mono text-cyan-400 uppercase tracking-widest font-bold mb-3">
-                TECHNICAL SKILLS
+              <h4 className="text-xs font-mono text-cyan-400 uppercase tracking-widest font-bold mb-4 pb-1 border-b border-cyan-500/20 flex items-center justify-between">
+                <span>TECHNICAL SKILLS</span>
+                <span className="text-[10px] text-slate-400 font-normal">Core Competencies & Stack</span>
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <div className="space-y-3">
                 {SKILL_CATEGORIES.map((cat) => (
-                  <div key={cat.name} className="flex items-start gap-2">
-                    <span className="font-mono text-amber-300 shrink-0">{cat.name}:</span>
-                    <span className="text-slate-300">{cat.skills.map((s) => s.name).join(', ')}</span>
+                  <div 
+                    key={cat.name} 
+                    className="p-3 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-cyan-500/30 transition-all flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3"
+                  >
+                    <span className="font-mono font-bold text-xs text-cyan-300 min-w-[175px] shrink-0 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 inline-block" />
+                      {cat.name}:
+                    </span>
+                    <div className="flex flex-wrap gap-1.5 text-xs text-slate-200">
+                      {cat.skills.map((s) => (
+                        <span 
+                          key={s.name}
+                          className="px-2.5 py-0.5 rounded-lg bg-cyan-950/40 border border-cyan-500/20 text-[11px] font-mono text-slate-200"
+                        >
+                          {s.name}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
