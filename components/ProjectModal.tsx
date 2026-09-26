@@ -37,42 +37,44 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     <AnimatePresence>
       <div 
         onClick={onClose}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto overscroll-contain bg-black/80 backdrop-blur-md"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md overscroll-contain"
       >
         <motion.div
           onClick={(e) => e.stopPropagation()}
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-3xl glass-card rounded-3xl border border-cyan-500/30 p-6 sm:p-8 shadow-2xl overflow-hidden my-8"
+          className="relative w-full max-w-3xl glass-card rounded-3xl border border-cyan-500/30 p-6 sm:p-8 shadow-2xl overflow-hidden flex flex-col max-h-[85vh] sm:max-h-[90vh] my-auto"
         >
           {/* Header Glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Close Button */}
-          <button
-            onClick={onClose}
-            className="absolute top-6 right-6 p-2.5 rounded-full bg-slate-900/80 border border-white/10 text-slate-400 hover:text-white hover:border-cyan-500/40 transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          {/* Fixed Header Bar */}
+          <div className="shrink-0 pb-5 border-b border-white/10 mb-6 relative z-10 pr-12">
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="absolute top-0 right-0 p-2.5 rounded-full bg-slate-900/90 border border-white/10 text-slate-400 hover:text-white hover:border-cyan-500/40 transition-colors"
+              aria-label="Close modal"
+            >
+              <X className="w-5 h-5" />
+            </button>
 
-          {/* Project Title & Category */}
-          <div className="mb-6 pr-12">
             <div className="flex flex-wrap items-center gap-3 mb-2">
               <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-cyan-950/60 border border-cyan-500/40 text-cyan-300">
                 {project.category}
               </span>
               <span className="text-xs font-mono text-slate-400">{project.date}</span>
             </div>
-            <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
               {project.title}
             </h3>
-            <p className="text-cyan-400 font-mono text-sm mt-1">{project.subtitle}</p>
+            <p className="text-cyan-400 font-mono text-xs sm:text-sm mt-1">{project.subtitle}</p>
           </div>
 
-          {/* Description */}
-          <div className="space-y-4 mb-6">
+          {/* Scrollable Content Body */}
+          <div className="flex-1 overflow-y-auto overscroll-contain pr-1 sm:pr-2 space-y-6">
+            {/* Description */}
             <p className="text-slate-300 text-sm leading-relaxed">
               {project.description}
             </p>
@@ -86,43 +88,43 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </div>
               </div>
             )}
-          </div>
 
-          {/* Key Achievements & Features */}
-          <div className="mb-6">
-            <h4 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Key Features & Engineering Deliverables</span>
-            </h4>
-            <ul className="space-y-2.5">
-              {project.keyHighlights.map((highlight, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                  <span>{highlight}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Key Features & Engineering Deliverables */}
+            <div>
+              <h4 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Key Features & Engineering Deliverables</span>
+              </h4>
+              <ul className="space-y-2.5">
+                {project.keyHighlights.map((highlight, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Tech Stack Pills */}
-          <div className="mb-8">
-            <h4 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-3">
-              Technologies Used
-            </h4>
-            <div className="flex flex-wrap gap-2">
-              {project.techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-900 border border-white/10 text-slate-200"
-                >
-                  {tech}
-                </span>
-              ))}
+            {/* Tech Stack Pills */}
+            <div>
+              <h4 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-3">
+                Technologies Used
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {project.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1.5 rounded-xl text-xs font-mono font-medium bg-slate-900 border border-white/10 text-slate-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Links Footer */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10">
+          <div className="shrink-0 flex flex-wrap items-center justify-between gap-4 pt-6 mt-6 border-t border-white/10">
             <a
               href={project.githubUrl}
               target="_blank"

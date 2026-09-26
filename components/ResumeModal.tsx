@@ -51,17 +51,17 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
     <AnimatePresence>
       <div 
         onClick={onClose}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto overscroll-contain bg-black/85 backdrop-blur-md"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md overscroll-contain"
       >
         <motion.div
           onClick={(e) => e.stopPropagation()}
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-4xl glass-card rounded-3xl border border-cyan-500/30 p-6 sm:p-10 shadow-2xl overflow-hidden my-8"
+          className="relative w-full max-w-4xl glass-card rounded-3xl border border-cyan-500/30 p-6 sm:p-10 shadow-2xl overflow-hidden flex flex-col max-h-[85vh] sm:max-h-[90vh] my-auto"
         >
           {/* Top Bar Controls */}
-          <div className="flex items-center justify-between pb-6 border-b border-white/10 mb-8">
+          <div className="shrink-0 flex items-center justify-between pb-6 border-b border-white/10 mb-6">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
                 <FileText className="w-5 h-5" />
@@ -72,7 +72,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={handleCopyText}
                 className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono font-medium text-slate-300 glass-card hover:bg-white/10 border border-white/15 transition-all cursor-pointer"
@@ -82,17 +82,31 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 <span>{copied ? 'Copied' : 'Copy'}</span>
               </button>
 
-              <button
-                onClick={handlePrint}
-                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-all cursor-pointer"
+              <a
+                href="/Santu_Pramanik_Resume.pdf"
+                download="Santu_Pramanik_Resume.pdf"
+                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-teal-300 hover:from-cyan-300 hover:to-teal-200 shadow-md shadow-cyan-500/20 transition-all cursor-pointer"
+                title="Download Official Resume PDF"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download PDF</span>
+              </a>
+
+              <a
+                href="/Santu_Pramanik_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono font-medium text-slate-300 glass-card hover:bg-white/10 border border-white/15 transition-all cursor-pointer"
+                title="Open PDF to Print"
               >
                 <Printer className="w-3.5 h-3.5" />
-                <span>Print / Save PDF</span>
-              </button>
+                <span>Print</span>
+              </a>
 
               <button
                 onClick={onClose}
                 className="p-2 rounded-xl bg-slate-900 text-slate-400 hover:text-white transition-colors"
+                aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -100,7 +114,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           </div>
 
           {/* Printable Resume Content Container */}
-          <div className="space-y-8 max-h-[70vh] overflow-y-auto pr-2 text-slate-200 text-sm">
+          <div className="flex-1 space-y-8 overflow-y-auto overscroll-contain pr-2 text-slate-200 text-sm">
             {/* Header */}
             <div className="text-center space-y-2 border-b border-white/10 pb-6">
               <h1 className="text-3xl font-extrabold text-white tracking-tight uppercase">
@@ -215,6 +229,21 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 • <strong>Competitive Programming & DSA (LeetCode):</strong> Solved 300+ DSA challenges on LeetCode, demonstrating strong command of data structures, algorithms, and code optimization.
               </p>
             </div>
+          </div>
+
+          {/* Bottom Action Footer */}
+          <div className="shrink-0 flex flex-wrap items-center justify-between gap-4 pt-4 mt-6 border-t border-white/10">
+            <span className="text-xs font-mono text-slate-400">
+              Official PDF Resume • Santu Pramanik
+            </span>
+            <a
+              href="/Santu_Pramanik_Resume.pdf"
+              download="Santu_Pramanik_Resume.pdf"
+              className="flex items-center gap-2 px-5 py-2 rounded-xl text-xs font-mono font-semibold text-slate-950 bg-gradient-to-r from-cyan-400 to-teal-300 hover:from-cyan-300 hover:to-teal-200 transition-all cursor-pointer shadow-md shadow-cyan-500/20"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download Resume PDF</span>
+            </a>
           </div>
         </motion.div>
       </div>

@@ -59,8 +59,8 @@ export const PERSONAL_INFO = {
   location: "Bengaluru, Karnataka 560024",
   phone: "+91-9832487454",
   email: "santu700141@gmail.com",
-  linkedin: "https://linkedin.com/in/santupramanik", // Placeholder format, updated with clean link
-  github: "https://github.com/santu700141",
+  linkedin: "https://www.linkedin.com/in/santu-pramanik/",
+  github: "https://github.com/santupramanik1",
   leetcode: "https://leetcode.com/u/santu700141",
   careerObjective: "Innovative and detail-oriented Full-Stack Developer with a strong foundation in the MERN stack, TypeScript, and AI integrations. Passionate about building scalable, responsive web applications and writing clean, modular code. Seeking to leverage hands-on project experience and strong problem-solving skills to drive impactful software solutions at a forward-thinking tech company.",
   stats: [
@@ -124,8 +124,8 @@ export const PROJECTS: Project[] = [
       "Developed core integration modules for automated resume screening and intelligent candidate interviewing features."
     ],
     architectureNotes: "Uses Node.js REST API gateway with Python LangChain agents processing resume embeddings and scoring candidates dynamically.",
-    demoUrl: "#",
-    githubUrl: "https://github.com/santu700141/HireIQ",
+    demoUrl: "https://hire-iq-pi.vercel.app/",
+    githubUrl: "https://github.com/santupramanik1/HireIQ",
     featured: true,
     metrics: "Automates candidate scoring with LLM agent pipelines"
   },
@@ -143,8 +143,8 @@ export const PROJECTS: Project[] = [
       "Implemented a secure, Stripe-based credit system to efficiently manage tiered user subscription plans and API usage tracking."
     ],
     architectureNotes: "Stripe Webhook integration for atomic credit refills, paired with streaming responses from Gemini API and asset CDN optimization via ImageKit.",
-    demoUrl: "#",
-    githubUrl: "https://github.com/santu700141/CogniSketch",
+    demoUrl: "https://cogni-sketch.vercel.app/",
+    githubUrl: "https://github.com/santupramanik1/CogniSketch",
     featured: true,
     metrics: "Tiered subscription model with real-time credit tracking"
   },
@@ -162,8 +162,8 @@ export const PROJECTS: Project[] = [
       "Engineered comprehensive task management features, including advanced sorting by due date and priority."
     ],
     architectureNotes: "Stateful JWT auth with HTTP-only tokens, index-optimized MongoDB queries for rapid sorting and drag-and-drop state updates.",
-    demoUrl: "#",
-    githubUrl: "https://github.com/santu700141/TaskPilot",
+    demoUrl: "https://task-manager-tau-snowy-58.vercel.app/",
+    githubUrl: "https://github.com/santupramanik1/Task_Management",
     featured: true,
     metrics: "Optimized sorting queries & secure JWT auth"
   }

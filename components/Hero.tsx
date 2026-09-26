@@ -75,13 +75,14 @@ export default function Hero({ onOpenResume, onOpenTerminal }: HeroProps) {
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              <button
-                onClick={onOpenResume}
+              <a
+                href="/Santu_Pramanik_Resume.pdf"
+                download="Santu_Pramanik_Resume.pdf"
                 className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-200 glass-card hover:bg-white/10 border border-white/15 hover:border-cyan-500/40 hover:-translate-y-0.5 transition-all cursor-pointer"
               >
                 <Download className="w-4 h-4 text-cyan-400" />
                 <span>Resume PDF</span>
-              </button>
+              </a>
 
               <button
                 onClick={onOpenTerminal}
