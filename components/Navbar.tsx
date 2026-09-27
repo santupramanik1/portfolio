@@ -19,7 +19,7 @@ export default function Navbar({ onOpenTerminal, onOpenResume }: NavbarProps) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'education', 'achievements', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'education', 'certifications', 'achievements', 'contact'];
       const scrollPos = window.scrollY + 200;
 
       for (const section of sections) {
@@ -45,6 +45,7 @@ export default function Navbar({ onOpenTerminal, onOpenResume }: NavbarProps) {
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
     { name: 'Education', href: '#education' },
+    { name: 'Certifications', href: '#certifications' },
     { name: 'Contact', href: '#contact' },
   ];
 

@@ -251,6 +251,58 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   }
 ];
 
+export interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  issuedDate: string;
+  credentialId: string;
+  skills: string[];
+  color: string;
+  accentColor: string;
+  badgeIcon: string;
+  verifyUrl?: string;
+}
+
+export const CERTIFICATIONS: Certification[] = [
+  {
+    id: "react-cert",
+    title: "Developing Front-End Apps with React",
+    issuer: "IBM",
+    issuedDate: "2025",
+    credentialId: "IBM-REACT-FE-2024",
+    skills: ["React.js", "JSX", "Component Architecture", "State Management", "React Hooks", "REST APIs"],
+    color: "from-cyan-500/20 to-blue-600/20",
+    accentColor: "cyan",
+    badgeIcon: "⚛️",
+    verifyUrl: "https://drive.google.com/file/d/1LrOfr19kKYNq_WE_b2nJJL_oUhJ2GTeQ/view?usp=sharing"
+  },
+  {
+    id: "software-eng-cert",
+    title: "Introduction to Software Engineering",
+    issuer: "IBM",
+    issuedDate: "2025",
+    credentialId: "IBM-SWE-INTRO-2024",
+    skills: ["Software Development Lifecycle", "Agile", "DevOps", "Version Control", "Cloud Fundamentals"],
+    color: "from-indigo-500/20 to-purple-600/20",
+    accentColor: "indigo",
+    badgeIcon: "🛠️",
+    verifyUrl: "https://drive.google.com/file/d/1ql9sPgNdpEtlsTTZTxpomzrQN12W90cr/view?usp=sharing"
+  },
+  {
+    id: "python-cert",
+    title: "Programming in Python",
+    issuer: "Meta",
+    issuedDate: "2025",
+    credentialId: "META-PYTHON-2025",
+    skills: ["Python 3", "Data Structures", "OOP", "File I/O", "APIs", "Libraries"],
+    color: "from-emerald-500/20 to-teal-600/20",
+    accentColor: "emerald",
+    badgeIcon: "🐍",
+    verifyUrl: "https://drive.google.com/file/d/11fzzqjar9F-yYW5hjSx7Byn3EiY2dwQz/view?usp=sharing"
+  }
+];
+
 export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "leetcode",
