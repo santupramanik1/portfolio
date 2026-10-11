@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, Cpu, Layers, CheckCircle2, Sparkles, Terminal } from 'lucide-react';
+import { X, ExternalLink, Cpu, Layers, CheckCircle2, Sparkles, Terminal, ShieldCheck, LayoutDashboard } from 'lucide-react';
 import { Github } from '@/components/Icons';
 import { Project } from '@/data/portfolioData';
 
@@ -65,6 +65,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.category}
               </span>
               <span className="text-xs font-mono text-slate-400">{project.date}</span>
+              {project.hasAdminPanel && (
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-violet-950/60 border border-violet-500/40 text-violet-300">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  Admin Panel Included
+                </span>
+              )}
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
               {project.title}

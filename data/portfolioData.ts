@@ -13,6 +13,8 @@ export interface Project {
   githubUrl: string;
   featured: boolean;
   metrics?: string;
+  hasAdminPanel?: boolean;
+  accentColor?: string;
 }
 
 export interface Experience {
@@ -128,6 +130,30 @@ export const EDUCATION_LIST: Education[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: "tripbloom",
+    title: "TripBloom",
+    subtitle: "Travel Planning Platform",
+    category: "Web Apps",
+    date: "Jul 2026 – Sep 2026",
+    summary: "A full-featured travel planning platform enabling users to discover destinations, organize trips, manage travel itineraries, and access a powerful admin control panel.",
+    description: "TripBloom is a comprehensive travel planning web application built with Next.js, designed to give travellers an intuitive interface to explore destinations, plan detailed itineraries, and manage bookings. The platform is backed by Supabase for real-time database management, authentication, and row-level security policies, while Amazon S3 provides scalable, reliable file storage for travel media and documents. An integrated admin panel gives administrators full control over destinations, user management, and platform content.",
+    techStack: ["Next.js", "Supabase", "Amazon S3", "TypeScript", "Tailwind CSS", "PostgreSQL"],
+    keyHighlights: [
+      "Built a full-stack travel planning platform enabling users to discover destinations, organize trips, and manage travel itineraries end-to-end.",
+      "Integrated Supabase for backend data management, authentication, and real-time database operations with row-level security.",
+      "Leveraged Amazon S3 for reliable and scalable file storage of travel media, documents, and user-generated content.",
+      "Developed a comprehensive admin panel with full control over destinations, user management, content moderation, and platform analytics.",
+      "Implemented secure role-based access control (RBAC) to differentiate between traveller and administrator permissions."
+    ],
+    architectureNotes: "Next.js App Router with Supabase Auth (JWT + RLS policies) for secure multi-role access. Amazon S3 pre-signed URLs for direct client uploads. Admin panel with dedicated protected routes and server-side data fetching.",
+    demoUrl: "https://trip-bloom.vercel.app/",
+    githubUrl: "https://github.com/santupramanik1",
+    featured: true,
+    metrics: "Full admin panel + S3 file storage integration",
+    hasAdminPanel: true,
+    accentColor: "emerald"
+  },
+  {
     id: "hireiq",
     title: "HireIQ",
     subtitle: "AI-Driven Recruitment Platform",
@@ -183,11 +209,13 @@ export const PROJECTS: Project[] = [
     demoUrl: "https://task-manager-tau-snowy-58.vercel.app/",
     githubUrl: "https://github.com/santupramanik1/Task_Management",
     featured: true,
-    metrics: "Optimized sorting queries & secure JWT auth"
+    metrics: "Optimized sorting queries & secure JWT auth",
+    accentColor: "violet"
   }
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
+
   {
     name: "Languages",
     description: "Core programming languages for algorithmic problem solving and web applications",
